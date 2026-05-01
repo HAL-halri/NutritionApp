@@ -6,6 +6,18 @@ import pandas as pd
 from datetime import datetime, date, timedelta
 from PIL import Image
 
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+# Firebaseの初期化（Streamlitは毎回画面を読み込むので、二重起動を防ぐ呪文を入れます）
+if not firebase_admin._apps:
+    cred = credentials.Certificate("firebase-key.json")
+    firebase_admin.initialize_app(cred)
+
+db = firestore.client() # データベースの操作用リモコン
+
+
 # --- 設定・履歴ファイルのパス ---
 SETTINGS_FILE = "user_settings.json"
 HISTORY_FILE = "nutrition_history.json"
@@ -224,7 +236,19 @@ with tab1:
                     
                     history_data[date_str] = data
                     save_json(HISTORY_FILE, history_data)
-                    st.success(f"{date_str} のデータを保存しました！")
+                    # ▼ ここから追加：データベースに保存する処理！
+                    # 今回は「user_A」という仮のユーザーの専用引き出しに保存します
+                    doc_ref = db.collection("users").document("user_A").collection("meals").document()
+                    doc_ref.set({
+                        "age": age,
+                        "gender": gender,
+                        "target_cal": target_cal,
+                        "ai_analysis": nutrient_data, # Geminiが出したカロリーや栄養素
+                        "timestamp": firestore.SERVER_TIMESTAMP # ボタンを押した時間
+                    })
+        
+                    st.success("✨ データベースに記録を保存しました！")
+                    # ▲ 追加ここまで
                     st.rerun()
                 except Exception as e:
                     st.error(f"エラーが発生しました: {e}")
