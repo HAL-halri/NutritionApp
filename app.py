@@ -243,7 +243,7 @@ with tab1:
                         "age": age,
                         "gender": gender,
                         "target_cal": target_cal,
-                        "ai_analysis": nutrient_data, # Geminiが出したカロリーや栄養素
+                        "ai_analysis": data, # Geminiが出したカロリーや栄養素
                         "timestamp": firestore.SERVER_TIMESTAMP # ボタンを押した時間
                     })
         
