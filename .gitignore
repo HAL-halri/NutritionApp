@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 firebase-key.json
+=======
+firebase-key.json
+.streamlit/secrets.toml
+>>>>>>> b26718a (log in認証機能)

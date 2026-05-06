@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 streamlit
 google-generativeai
 firebase-admin
+=======
+streamlit
+google-generativeai
+firebase-admin
+requests
+>>>>>>> b26718a (log in認証機能)
