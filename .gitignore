@@ -1,2 +1,2 @@
 firebase-key.json
-.streamlit/
+.streamlit/secrets.toml

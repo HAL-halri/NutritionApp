@@ -5,7 +5,7 @@ import os
 import pandas as pd
 from datetime import datetime, date, timedelta
 from PIL import Image
-import requests  # 👈 認証の通信に必要なので追加しました！
+import requests  
 
 import firebase_admin
 from firebase_admin import credentials
@@ -20,7 +20,7 @@ db = firestore.client()
 
 # --- API設定 ---
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
-FIREBASE_WEB_API_KEY = st.secrets["FIREBASE_WEB_API_KEY"] # 👈 ログイン用に復活
+FIREBASE_WEB_API_KEY = st.secrets["FIREBASE_WEB_API_KEY"] # ログイン用
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
@@ -29,7 +29,7 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 st.set_page_config(page_title="Gemini栄養管理アプリ", layout="wide")
 
 # ==========================================
-# 🌟 メモ帳（Session State）の準備
+# Session Stateの準備
 # ==========================================
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
@@ -37,7 +37,7 @@ if "user_uid" not in st.session_state:
     st.session_state["user_uid"] = None
 
 # ==========================================
-# 🌟 ログイン・新規登録用の関数
+# ログイン・新規登録用の関数
 # ==========================================
 def sign_up_with_email_and_password(email, password):
     url = f"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={FIREBASE_WEB_API_KEY}"
@@ -52,7 +52,7 @@ def sign_in_with_email_and_password(email, password):
     return r.json()
 
 # ==========================================
-# 🌟 ログインしていない時の画面
+# ログインしていない時の画面
 # ==========================================
 if not st.session_state["logged_in"]:
     st.title("🔐 ログイン")
@@ -84,7 +84,7 @@ if not st.session_state["logged_in"]:
                 st.error(f"登録に失敗しました: {response['error']['message']}")
 
 # ==========================================
-# 🌟 ログインしている時の画面（本編）
+# ログインしている時の画面
 # ==========================================
 else:
     st.title("🍽️ パーソナルAI栄養管理アプリ")
@@ -233,6 +233,7 @@ else:
                     あなたはプロの厳しくも優しい専属栄養士です。以下の1日の食事内容と栄養素の達成状況を見て、200〜300文字程度でアドバイスをください。
                     ・大きくオーバー、または不足している栄養素を具体的に指摘してください。
                     ・「この食事のこのメニューを〇〇に変えると良かった」「明日は〇〇を多めに食べましょう」など、具体的な食材や料理名を出して改善案を提示してください。
+                    また、名前や冒頭のあいさつは不要です。
                     
                     【目標】カロリー:{targets['calories']}kcal, タンパク質:{targets['protein']}g, 脂質:{targets['fat']}g, 炭水化物:{targets['carbs']}g
                     【実際】カロリー:{data.get('calories',0)}kcal, タンパク質:{data.get('protein',0)}g, 脂質:{data.get('fat',0)}g, 炭水化物:{data.get('carbs',0)}g
@@ -294,7 +295,7 @@ else:
                         history_data[date_str] = data
                         save_json(HISTORY_FILE, history_data)
                         
-                        # 🌟 Firebaseの保存先を「user_A」から「ログイン中のUID」に変更！
+                        # 🌟 Firebaseの保存先を「user_A」から「ログイン中のUID」に変更
                         doc_ref = db.collection("users").document(st.session_state["user_uid"]).collection("meals").document(date_str)
                         doc_ref.set({
                             "date": date_str,
