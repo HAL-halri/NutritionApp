@@ -4,7 +4,7 @@
 「毎日の食事記録が面倒で続かない」という自身の課題を解決するために開発した、写真やテキストから手軽に栄養管理ができるWebアプリケーションです。
 Gemini APIを活用し、食事の写真やテキストから摂取カロリーとPFC（タンパク質・脂質・炭水化物）を自動算出することで、入力のハードルを極限まで下げました。
 
-- **アプリURL:** https://[RenderのURLを記載]
+- **アプリURL:** https://nutritionapp-faxpy6zqm8ew4jl99fwowd.streamlit.app/
   （※無料サーバーを利用しているため、初回読み込みに数十秒かかる場合があります）
 
 ## ✨ 主な機能
@@ -37,6 +37,11 @@ Gemini APIを活用し、食事の写真やテキストから摂取カロリー�
 Gemini等の生成AIを単なる機能（API）として組み込むだけでなく、開発工程そのものにも活用しました。AIからの提案を鵜呑みにせず、自分の要件に合わせて検証・取捨選択しながら実装を進めることで、約1ヶ月という短期間での基本機能実装を達成しました。
 
 ## 🚀 ローカルでの動かし方
+# 【注意】 環境変数の設定
+※注意: ローカルで実行する際は、`.streamlit/secrets.toml` を作成し、以下のキーを設定する必要があります。
+- GOOGLE_API_KEY
+- FIREBASE_KEY (JSON形式)
+- FIREBASE_WEB_API_KEY
 ```bash
 # 1. リポジトリのクローン
 git clone https://github.com/HAL-halri/NutritionApp.git
