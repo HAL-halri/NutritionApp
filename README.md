@@ -12,13 +12,14 @@ Gemini APIを活用し、食事の写真やテキストから摂取カロリー�
 - **ユーザー認証機能:** Firebase Authenticationを用いた安全なログイン・アカウント作成
 - **ユーザー別データ管理:** Firestoreを活用した、他者のデータと混在しない安全な履歴管理
 - **ダッシュボード表示:** 摂取した栄養素のグラフ表示
-- **長期間のデータ保存:** 複数機関のデータ保存による持続性の高い健康管理を実現
+- **長期間のデータ保存:** 複数期間のデータ保存による持続性の高い健康管理を実現
 
 ## 📸 画面イメージ
 <img width="640" height="314" alt="image" src="https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4" />
 
-![記録画面のスクショ](記録画面の画像URLなど)
-> ※GitHubのリポジトリに画像をドラッグ＆ドロップすると、簡単に画像URLが生成されます。
+<img width="488" height="245" alt="image" src="https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14" />
+
+
 
 ## 🛠 使用技術
 - **フロントエンド / バックエンド:** Python (Streamlit)
@@ -38,10 +39,10 @@ Gemini等の生成AIを単なる機能（API）として組み込むだけでな
 ## 🚀 ローカルでの動かし方
 ```bash
 # 1. リポジトリのクローン
-git clone [https://github.com/](https://github.com/)[ユーザー名]/[リポジトリ名].git
+git clone https://github.com/HAL-halri/NutritionApp.git
 
 # 2. ディレクトリの移動
-cd [リポジトリ名]
+cd NutritionApp
 
 # 3. 必要なライブラリのインストール
 pip install -r requirements.txt
