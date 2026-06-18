@@ -4,7 +4,7 @@
 「毎日の食事記録が面倒で続かない」という自身の課題を解決するために開発した、写真やテキストから手軽に栄養管理ができるWebアプリケーションです。
 Gemini APIを活用し、食事の写真やテキストから摂取カロリーとPFC（タンパク質・脂質・炭水化物）を自動算出することで、入力のハードルを極限まで下げました。
 
-- **アプリURL:** https://[🚨ここをご自身の実際のRenderのURLに書き換えてください🚨]
+- **アプリURL:** https://nutritionapp-faxpy6zqm8ew4jl99fwowd.streamlit.app/
   （※無料サーバーを利用しているため、初回読み込みに数十秒かかる場合があります）
 
 ## ✨ 主な機能
@@ -47,3 +47,11 @@ pip install -r requirements.txt
 
 # 4. アプリの起動
 streamlit run app.py
+
+# 5. 環境変数の設定
+【注意】ローカルで実行する際は、.streamlit/secrets.toml を作成し、以下のキーを設定する必要があります。
+GOOGLE_API_KEY
+
+FIREBASE_KEY (JSON形式)
+
+FIREBASE_WEB_API_KEY
