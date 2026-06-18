@@ -15,16 +15,16 @@ Gemini APIを活用し、食事の写真やテキストから摂取カロリー�
 - **長期間のデータ保存:** 複数期間のデータ保存による持続性の高い健康管理を実現
 
 ## 📸 画面イメージ
-<img width="640" height="314" alt="image" src="https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4" />
+<img width="640" height="314" alt="image" src="[https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4](https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4)" />
 
-<img width="488" height="245" alt="image" src="https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14" />
+<img width="488" height="245" alt="image" src="[https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14](https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14)" />
 
 ## 🛠 使用技術
 - **フロントエンド / バックエンド:** Python (Streamlit)
 - **データベース:** Firebase (Cloud Firestore)
 - **認証機能:** Firebase Authentication
 - **外部API:** Google Gemini API
-- **インフラ・デプロイ:** Render
+- **インフラ・デプロイ:** Streamlit Community Cloud
 - **バージョン管理:** Git / GitHub
 
 ## 💡 開発における工夫点・注力したこと
@@ -37,7 +37,7 @@ Gemini等の生成AIを単なる機能（API）として組み込むだけでな
 ## 🚀 ローカルでの動かし方
 ```bash
 # 1. リポジトリのクローン
-git clone [https://github.com/HAL-halri/NutritionApp.git](https://github.com/HAL-halri/NutritionApp.git)
+git clone https://github.com/HAL-halri/NutritionApp.git
 
 # 2. ディレクトリの移動
 cd NutritionApp
@@ -50,6 +50,7 @@ streamlit run app.py
 
 # 5. 環境変数の設定
 【注意】ローカルで実行する際は、.streamlit/secrets.toml を作成し、以下のキーを設定する必要があります。
+
 GOOGLE_API_KEY
 
 FIREBASE_KEY (JSON形式)
