@@ -17,6 +17,7 @@ Gemini APIを活用し、食事の写真やテキストから摂取カロリー�
 ## 📸 画面イメージ
 ### ログイン後の画面
 <img width="1278" height="672" alt="スクリーンショット 2026-06-18 222812" src="https://github.com/user-attachments/assets/25037a09-e72e-457a-87b0-42d627fd96ab" />
+
 ### 食事データの分析結果
 <img width="984" height="574" alt="スクリーンショット 2026-06-18 222748" src="https://github.com/user-attachments/assets/2f9df40c-649a-47d4-91ae-17d5206ef8f1" />
 
