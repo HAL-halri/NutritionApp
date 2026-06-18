@@ -15,9 +15,13 @@ Gemini APIを活用し、食事の写真やテキストから摂取カロリー�
 - **長期間のデータ保存:** 複数期間のデータ保存による持続性の高い健康管理を実現
 
 ## 📸 画面イメージ
-<img width="640" height="314" alt="image" src="[https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4](https://github.com/user-attachments/assets/805af997-2d04-4f57-b9d4-62114d9116f4)" />
+### ログイン後の画面
+<img width="1278" height="672" alt="スクリーンショット 2026-06-18 222812" src="https://github.com/user-attachments/assets/25037a09-e72e-457a-87b0-42d627fd96ab" />
+### 食事データの分析結果
+<img width="984" height="574" alt="スクリーンショット 2026-06-18 222748" src="https://github.com/user-attachments/assets/2f9df40c-649a-47d4-91ae-17d5206ef8f1" />
 
-<img width="488" height="245" alt="image" src="[https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14](https://github.com/user-attachments/assets/b6c40de3-161b-4865-a8b8-af3301ea7b14)" />
+
+
 
 ## 🛠 使用技術
 - **フロントエンド / バックエンド:** Python (Streamlit)
