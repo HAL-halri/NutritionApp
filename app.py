@@ -12,11 +12,20 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Firebaseの初期化
-if not firebase_admin._apps:
-    key_dict = json.loads(st.secrets["FIREBASE_KEY"])
-    cred = credentials.Certificate(key_dict)
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
+@st.cache_resource
+def init_firebase():
+    try:
+        firebase_admin.get_app()
+    except ValueError:
+        key_dict = json.loads(st.secrets["FIREBASE_KEY"])
+        cred = credentials.Certificate(key_dict)
+        try:
+            firebase_admin.initialize_app(cred)
+        except ValueError:
+            pass  # 他のセッションが先に初期化済みなら無視
+    return firestore.client()
+
+db = init_firebase()
 
 # --- API設定 ---
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
@@ -107,7 +116,7 @@ else:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
-    # 🌟 ファイル名をログインしているUIDで分ける
+    # ファイル名をログインしているUIDで分ける
     uid = st.session_state["user_uid"]
     SETTINGS_FILE = f"user_settings_{uid}.json"
     HISTORY_FILE = f"nutrition_history_{uid}.json"
